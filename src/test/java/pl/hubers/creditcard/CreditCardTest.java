@@ -16,7 +16,7 @@ public class CreditCardTest {
         //Assert
         assertEquals(
                 BigDecimal.valueOf(1500),
-                card.getBalance());
+                card.getBalance(), "Credit does not match current");
 
     }
 
@@ -26,15 +26,44 @@ public class CreditCardTest {
 
         try {
             card.assignCredit(BigDecimal.valueOf(50));
-            fail("Exeption should be raised");
-        } catch (CreditBe;pwThreholdException e) {
-            assertTrue(true);
+            fail("Exception should be thrown");
+        } catch (CreditBelowThresholdException e) {
+            assert true;
         }
     }
 
-    public class CreditBelowThresholdException
-        extends IllegalStateException {
-        
+    @Test
+    void itCantReassignCreditLimit() {
+        var card = new CreditCard();
+
+        card.assignCredit(BigDecimal.valueOf(1500));
+
+        assertThrows(
+                CreditCantBeReassignException.class,
+                () -> card.assignCredit(BigDecimal.valueOf(2000))
+        );
+    }
+
+    @Test
+    void itAllowsWithdrawMoney(){
+        CreditCard card = new CreditCard();
+        card.assignCredit(BigDecimal.valueOf(2000));
+
+        card.withdraw(BigDecimal.valueOf(1000));
+
+        assertEquals(BigDecimal.valueOf(1000), card.getBalance());
+    }
+
+    @Test
+    void itDenyTransactionsOverTheBalance() {
+        var card = new CreditCard();
+        card.assignCredit(BigDecimal.valueOf(2000));
+        card.withdraw(BigDecimal.valueOf(1000));
+
+        assertThrows(
+                TransactionDenyException.class,
+                () -> card.withdraw(BigDecimal.valueOf(2000))
+        );
     }
 }
 
