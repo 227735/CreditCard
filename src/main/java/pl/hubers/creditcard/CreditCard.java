@@ -7,36 +7,30 @@ public class CreditCard {
     private BigDecimal balance;
 
     public void assignCredit(BigDecimal creditLimit) {
-        if (isCreditAlreadyAssigned()){
-            throw new CreditCantBeReassignException();
+        if (this.creditLimit != null){
+            throw new CreditCantBeReassignedException();
+        }
+        if (creditLimit.compareTo(BigDecimal.valueOf(100)) < 0){
+            throw new CreditBelowThresholdException();
         }
         this.creditLimit = creditLimit;
-        this.balance = balance;
+        this.balance = creditLimit;
     }
-    private static boolean isCreditBelowThreshold(BigDecimal creditLimit){
-        return creditLimit.compareTo(BigDecimal.valueOf(100)) < 0;
-    }
-
-    private boolean isCreditAlreadyAssigned() {
-        return this.creditLimit != null;
-    }
-
-//        if (isCreditBelowThreshold(creditLimit))
-//        if (creditLimit.compareTo(BigDecimal.valueOf(100)) < 0) {
-//        throw new CreditBelowThresholdException();
 
     public BigDecimal getBalance() {
+
         return balance;
     }
 
     public void withdraw(BigDecimal money) {
-        if (isBelowBalance(money)) {
+        if(isBelowBalance(money)){
             throw new TransactionDenyException();
         }
+
         this.balance = balance.subtract(money);
     }
 
     private boolean isBelowBalance(BigDecimal money) {
-        return balance.subtract(money).compareTo(BigDecimal.valueOf(2000));
+        return balance.subtract(money).compareTo(BigDecimal.valueOf(0)) < 0;
     }
 }
