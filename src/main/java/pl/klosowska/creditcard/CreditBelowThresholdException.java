@@ -1,4 +1,4 @@
-package pl.hubers.creditcard;
+package pl.klosowska.creditcard;
 
 public class CreditBelowThresholdException extends IllegalStateException{
 }

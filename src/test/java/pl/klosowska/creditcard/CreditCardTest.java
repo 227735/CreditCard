@@ -1,8 +1,7 @@
-package pl.hubers.creditcard;
+package pl.klosowska.creditcard;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.math.BigDecimal;
 
 public class CreditCardTest {
