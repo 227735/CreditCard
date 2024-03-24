@@ -43,4 +43,17 @@ public class ProductCatalogTest {
     private ProductCatalog thereIsProductCatalog() {
         return new ProductCatalog();
     }
+
+//    @Test
+//    void itAllowsToAssignImage() {
+//        ProductCatalog catalog = thereIsProductCatalog();
+//        String id = catalog.addProduct("Lego set 8084","nice one");
+//
+//        catalog.assignImage(id, "nice_image.jpeg");
+//
+//        Product loaded = catalog.getProductBy(id);
+//        assertEquals("nice_image.jpeg", loaded.getImage());
+//    }
+
 }
+
