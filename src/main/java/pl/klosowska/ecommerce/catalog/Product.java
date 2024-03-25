@@ -1,4 +1,4 @@
-package pl.klosowska.ecommerce;
+package pl.klosowska.ecommerce.catalog;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -6,6 +6,7 @@ import java.util.UUID;
 public class Product {
     private final String id;
     private final String name;
+
     private final String description;
     private BigDecimal price;
     private String image;
@@ -35,4 +36,14 @@ public class Product {
     public String getImage() {
         return image;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+
 }

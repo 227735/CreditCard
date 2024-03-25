@@ -1,4 +1,4 @@
-package pl.klosowska.ecommerce;
+package pl.klosowska.ecommerce.catalog;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

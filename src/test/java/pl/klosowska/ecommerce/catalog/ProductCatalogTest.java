@@ -1,6 +1,9 @@
-package pl.klosowska.ecommerce;
+package pl.klosowska.ecommerce.catalog;
 
 import org.junit.jupiter.api.Test;
+import pl.klosowska.ecommerce.catalog.Product;
+import pl.klosowska.ecommerce.catalog.ProductCatalog;
+
 import java.math.BigDecimal;
 import java.util.List;
 import static org.assertj.core.api.Assertions.*;
