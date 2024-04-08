@@ -8,29 +8,27 @@ import java.util.UUID;
 
 public class ProductCatalog {
 
-    private ArrayList<Product> products;
+    ArrayListProductStorage productStorage;
 
-    public ProductCatalog() {
-        this.products = new ArrayList<>();
+    public ProductCatalog(ProductStorage productStorage) {
+        this.productStorage = productStorage;
     }
     public List<Product> allProducts() {
-        return Collections.unmodifiableList(products);
+
+        return productStorage.allProducts();
     }
 
     public String addProduct(String name, String description) {
         UUID id = UUID.randomUUID();
 
         Product newProduct = new Product(id, name, description);
-        products.add(newProduct);
+        productStorage.add(newProduct);
 
         return id.toString();
     }
 
     public Product getProductBy(String id) {
-        return products.stream()
-                .filter(product -> product.getId().equals(id))
-                .findFirst()
-                .get();
+        return productStorage.getProductBy(id);
     }
 
     public void changePrice(String id, BigDecimal price) {
