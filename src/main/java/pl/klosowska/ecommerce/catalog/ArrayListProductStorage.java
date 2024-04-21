@@ -5,16 +5,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class ArrayListProductStorage implements ProductStorage {
-    private ArrayList<Product> products;
-
-    @Override
-    public List<Product> allProducts() {
-
-        return Collections.unmodifiableList(products);
-    }
+    ArrayList<Product> products;
 
     public ArrayListProductStorage(){
         this.products = new ArrayList<>();
+    }
+
+    @Override
+    public List<Product> allProducts() {
+        return Collections.unmodifiableList(products);
     }
 
     @Override

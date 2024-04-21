@@ -9,7 +9,7 @@ public class Product {
 
     private final String description;
     private BigDecimal price;
-    private String image;
+    private String imageName;
 
     public Product(UUID id, String name, String description) {
         this.id = id.toString();
@@ -22,19 +22,19 @@ public class Product {
     }
 
     public BigDecimal getPrice() {
-        return price;
+        return this.price;
     }
 
     public void changePrice(BigDecimal price) {
         this.price = price;
     }
 
-    public void assignImage(String imageKey) {
-        image = imageKey;
+    public void assignImage(String imageName) {
+        this.imageName = imageName;
     }
 
     public String getImage() {
-        return image;
+        return this.imageName;
     }
 
     public String getName() {

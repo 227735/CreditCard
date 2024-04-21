@@ -8,13 +8,12 @@ import java.util.UUID;
 
 public class ProductCatalog {
 
-    ArrayListProductStorage productStorage;
+    ProductStorage productStorage;
 
     public ProductCatalog(ProductStorage productStorage) {
         this.productStorage = productStorage;
     }
     public List<Product> allProducts() {
-
         return productStorage.allProducts();
     }
 
@@ -36,8 +35,8 @@ public class ProductCatalog {
         loadedProduct.changePrice(price);
     }
 
-    public void assignImage(String id, String imageKey) {
+    public void assignImage(String id, String imageName) {
         Product loadedProduct = getProductBy(id);
-        loadedProduct.assignImage(imageKey);
+        loadedProduct.assignImage(imageName);
     }
 }

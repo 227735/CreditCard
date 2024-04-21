@@ -21,6 +21,13 @@ public class HashMapProductStorageTest {
                 .contains("test-it");
     }
 
+    private static Product thereIsExampleProduct() {
+        return new Product(UUID.randomUUID(), "test-it", "test");
+    }
+
+    private ProductStorage thereIsHashMapStorage() {
+        return new HashMapProductStorage();
+    }
 
     @Test
     void itAllowsToLoadAllProducts() {
@@ -30,11 +37,4 @@ public class HashMapProductStorageTest {
     void itAllowsToLoadProductById() {
     }
 
-    @Test
-    void thereIsHashMapStorage() {
-    }
-
-    @Test
-    void thereIsExampleProduct() {
-    }
 }

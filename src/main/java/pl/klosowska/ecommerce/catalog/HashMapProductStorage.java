@@ -19,6 +19,7 @@ public class HashMapProductStorage implements ProductStorage{
 
     @Override
     public void add(Product newProduct) {
+        products.put(newProduct.getId(), newProduct);
 
     }
 
