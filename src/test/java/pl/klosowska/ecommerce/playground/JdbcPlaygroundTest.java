@@ -127,7 +127,7 @@ public class JdbcPlaygroundTest {
                     ;
                 """;
         jdbcTemplate.execute(myInsertSql);
-        List<Map<String, Object>> products = jdbcTemplate.queryForList("select * from `product_catalog__products");
+        List<Map<String, Object>> products = jdbcTemplate.queryForList("select * from `product_catalog__products`");
     }
 
 }
