@@ -7,6 +7,8 @@ import pl.klosowska.ecommerce.catalog.ArrayListProductStorage;
 import pl.klosowska.ecommerce.catalog.ProductCatalog;
 import pl.klosowska.ecommerce.sales.SalesFacade;
 
+import java.math.BigDecimal;
+
 @SpringBootApplication
 public class App {
     public static void main(String[] args) {
@@ -15,15 +17,20 @@ public class App {
     }
 
     @Bean
-    ProductCatalog createMyProductCatalog() {
-        ProductCatalog productCatalog = new ProductCatalog(new ArrayListProductStorage());
-        productCatalog.addProduct("Lego set 1", "Nice one");
-        productCatalog.addProduct("Lego set 2", "Nice one");
-        return productCatalog;
+    ProductCatalog createCatalog() {
+        var catalog = new ProductCatalog(new ArrayListProductStorage());
+        var pid1 = catalog.addProduct("Lego set 8083", "nice one");
+        catalog.changePrice(pid1, BigDecimal.valueOf(100.10));
+
+        var pid2 = catalog.addProduct("Cobi set 8083", "nice one");
+        catalog.changePrice(pid2, BigDecimal.valueOf(50.10));
+
+        return catalog;
     }
 
     @Bean
     SalesFacade createSales(){
+
         return new SalesFacade();
     }
 }
