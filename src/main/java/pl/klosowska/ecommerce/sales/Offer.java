@@ -8,6 +8,6 @@ public class Offer {
     }
 
     public BigDecimal getTotal() {
-        return BigDecimal.ZERO;
+        return BigDecimal.valueOf(0);
     }
 }

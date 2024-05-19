@@ -7,8 +7,8 @@ import java.math.BigDecimal;
 public class SalesTest {
     @Test
     void itShowsOffer(){
-        SalesFacade sales = thereIsSAlesFacade();
-        String customerId = thereIsExampleCustomer("Kuba");
+        SalesFacade sales = thereIsSalesFacade();
+        String customerId = thereIsExampleCustomer("Monika");
 
         Offer offer = sales.getCurrentOffer(customerId);
 
@@ -20,7 +20,7 @@ public class SalesTest {
         return id;
     }
 
-    private SalesFacade thereIsSAlesFacade() {
+    private SalesFacade thereIsSalesFacade() {
         return new SalesFacade();
     }
 
@@ -28,7 +28,7 @@ public class SalesTest {
     void itAllowsToAddProductToCart(){
         String productId = thereIsProduct("Example", BigDecimal.valueOf(10));
         String customerId = thereIsExampleCustomer("Monika");
-        SalesFacade sales = thereIsSAlesFacade();
+        SalesFacade sales = thereIsSalesFacade();
 
         sales.addToCart(customerId, productId);
         Offer offer = sales.getCurrentOffer(customerId);
@@ -43,7 +43,7 @@ public class SalesTest {
         var productA = thereIsProduct("product a", BigDecimal.valueOf(10));
         var productB = thereIsProduct("product b", BigDecimal.valueOf(20));
 
-        SalesFacade sales = thereIsSAlesFacade();
+        SalesFacade sales = thereIsSalesFacade();
 
         sales.addToCart(customerId, productA);
         sales.addToCart(customerId, productB);
@@ -59,7 +59,7 @@ public class SalesTest {
         var productB = thereIsProduct("Example b", BigDecimal.valueOf(20));
         var customerA = thereIsExampleCustomer("Monika");
         var customerB = thereIsExampleCustomer("Michal");
-        SalesFacade sales = thereIsSAlesFacade();
+        SalesFacade sales = thereIsSalesFacade();
 
         sales.addToCart(customerA, productA);
         sales.addToCart(customerB, productB);

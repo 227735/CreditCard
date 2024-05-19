@@ -5,26 +5,26 @@ import java.util.List;
 
 public class HashMapProductStorage implements ProductStorage{
 
-    HashMap<String, Product> products;
+    HashMap<String, Product> productHashMap;
 
     public HashMapProductStorage(){
-        this.products = new HashMap<>();
+        this.productHashMap = new HashMap<>();
     }
     @Override
     public List<Product> allProducts() {
-        return products.values()
+        return productHashMap.values()
                 .stream()
                 .toList();
     }
 
     @Override
-    public void add(Product newProduct) {
-        products.put(newProduct.getId(), newProduct);
+    public void add(Product product) {
+        productHashMap.put(product.getId(), product);
 
     }
 
     @Override
     public Product getProductBy(String id) {
-        return products.get(id);
+        return productHashMap.get(id);
     }
 }

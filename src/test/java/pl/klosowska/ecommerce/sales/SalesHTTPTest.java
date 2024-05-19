@@ -36,7 +36,7 @@ public class SalesHTTPTest {
                 .setLastName("Kowalski")
                 .setEmail("jan23@example.com");
 
-        var acceptOfferURL = String.format("http://localhost:%s/%s", port, "api/add-to-cart/%s");
+        var acceptOfferURL = String.format("http://localhost:%s/%s", port, "api/accept-offer");
         ResponseEntity<ReservationDetails> reservationResponse = http.postForEntity(acceptOfferURL, acceptOfferRequest, ReservationDetails.class);
 
         assertEquals(HttpStatus.OK, reservationResponse.getStatusCode());
