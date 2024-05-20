@@ -1,6 +1,9 @@
 package pl.klosowska.ecommerce.sales;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.Bean;
+import pl.klosowska.ecommerce.sales.cart.InMemoryCartStorage;
+
 import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
 
@@ -87,6 +90,14 @@ public class SalesTest {
 
     @Test
     void itAllowsToAcceptOffer(){
+    }
+
+    @Bean
+    SalesFacade createSales(){
+        return new SalesFacade(
+                new InMemoryCartStorage(),
+                new OfferCalculator()
+        );
     }
 
 }
