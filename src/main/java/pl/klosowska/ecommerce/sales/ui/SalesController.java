@@ -1,9 +1,12 @@
-package pl.klosowska.ecommerce.sales;
+package pl.klosowska.ecommerce.sales.ui;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.klosowska.ecommerce.sales.SalesFacade;
+import pl.klosowska.ecommerce.sales.offer.Offer;
+import pl.klosowska.ecommerce.sales.reservation.ReservationDetails;
 
 @RestController
 public class SalesController {

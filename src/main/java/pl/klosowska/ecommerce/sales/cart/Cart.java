@@ -6,12 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Cart {
-    Map<String, Integer> productsQty;
+    HashMap<String, Integer> productsQty;
 
     public Cart(){
+
         this.productsQty = new HashMap<>();
     }
     public static Cart empty() {
+
         return new Cart();
     }
 

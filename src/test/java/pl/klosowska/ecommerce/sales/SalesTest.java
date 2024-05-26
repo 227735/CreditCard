@@ -3,6 +3,8 @@ package pl.klosowska.ecommerce.sales;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.Bean;
 import pl.klosowska.ecommerce.sales.cart.InMemoryCartStorage;
+import pl.klosowska.ecommerce.sales.offer.Offer;
+import pl.klosowska.ecommerce.sales.offer.OfferCalculator;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
@@ -24,7 +26,10 @@ public class SalesTest {
     }
 
     private SalesFacade thereIsSalesFacade() {
-        return new SalesFacade();
+        return new SalesFacade(
+                new InMemoryCartStorage(),
+                new OfferCalculator()
+        );
     }
 
     @Test
@@ -42,7 +47,7 @@ public class SalesTest {
 
     @Test
     void itAllowsToAddMultipleProductsToCart(){
-        var customerId = thereIsExampleCustomer("Emil");
+        var customerId = thereIsExampleCustomer("Monika");
         var productA = thereIsProduct("product a", BigDecimal.valueOf(10));
         var productB = thereIsProduct("product b", BigDecimal.valueOf(20));
 

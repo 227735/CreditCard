@@ -1,4 +1,4 @@
-package pl.klosowska.ecommerce.sales;
+package pl.klosowska.ecommerce.sales.reservation;
 
 import java.math.BigDecimal;
 

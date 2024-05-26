@@ -7,8 +7,10 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import pl.klosowska.ecommerce.catalog.ProductCatalog;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import pl.klosowska.ecommerce.sales.offer.AcceptOfferRequest;
+import pl.klosowska.ecommerce.sales.reservation.ReservationDetails;
+
 import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
 

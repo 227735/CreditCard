@@ -2,6 +2,9 @@ package pl.klosowska.ecommerce.sales;
 
 import pl.klosowska.ecommerce.sales.cart.Cart;
 import pl.klosowska.ecommerce.sales.cart.InMemoryCartStorage;
+import pl.klosowska.ecommerce.sales.offer.Offer;
+import pl.klosowska.ecommerce.sales.offer.OfferCalculator;
+import pl.klosowska.ecommerce.sales.reservation.ReservationDetails;
 
 public class SalesFacade {
     private InMemoryCartStorage cartStorage;
