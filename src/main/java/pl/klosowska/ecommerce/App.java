@@ -5,9 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.klosowska.ecommerce.catalog.ArrayListProductStorage;
 import pl.klosowska.ecommerce.catalog.ProductCatalog;
+import pl.klosowska.ecommerce.infrastructure.PayUPaymentGateway;
 import pl.klosowska.ecommerce.sales.offer.OfferCalculator;
 import pl.klosowska.ecommerce.sales.SalesFacade;
 import pl.klosowska.ecommerce.sales.cart.InMemoryCartStorage;
+import pl.klosowska.ecommerce.sales.reservation.ReservationRepository;
 
 import java.math.BigDecimal;
 
@@ -34,7 +36,9 @@ public class App {
     SalesFacade createSales(){
         return new SalesFacade(
                 new InMemoryCartStorage(),
-                new OfferCalculator()
+                new OfferCalculator(),
+                new PayUPaymentGateway(),
+                new ReservationRepository()
         );
     }
 }

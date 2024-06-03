@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import pl.klosowska.ecommerce.sales.cart.InMemoryCartStorage;
 import pl.klosowska.ecommerce.sales.offer.Offer;
 import pl.klosowska.ecommerce.sales.offer.OfferCalculator;
+import pl.klosowska.ecommerce.sales.reservation.ReservationRepository;
+import pl.klosowska.ecommerce.sales.reservation.SpyPaymentGateway;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
@@ -28,14 +30,16 @@ public class SalesTest {
     private SalesFacade thereIsSalesFacade() {
         return new SalesFacade(
                 new InMemoryCartStorage(),
-                new OfferCalculator()
+                new OfferCalculator(),
+                new SpyPaymentGateway(),
+                new ReservationRepository()
         );
     }
 
     @Test
     void itAllowsToAddProductToCart(){
-        String productId = thereIsProduct("Example", BigDecimal.valueOf(10));
-        String customerId = thereIsExampleCustomer("Monika");
+        var productId = thereIsProduct("Example", BigDecimal.valueOf(10));
+        var customerId = thereIsExampleCustomer("Monika");
         SalesFacade sales = thereIsSalesFacade();
 
         sales.addToCart(customerId, productId);
@@ -84,8 +88,8 @@ public class SalesTest {
     }
 
 
-    private String thereIsProduct(String example, BigDecimal bigDecimal) {
-        return null;
+    private String thereIsProduct(String name, BigDecimal price) {
+        return name;
     }
 
     @Test
@@ -97,12 +101,5 @@ public class SalesTest {
     void itAllowsToAcceptOffer(){
     }
 
-    @Bean
-    SalesFacade createSales(){
-        return new SalesFacade(
-                new InMemoryCartStorage(),
-                new OfferCalculator()
-        );
-    }
 
 }

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.klosowska.ecommerce.sales.SalesFacade;
+import pl.klosowska.ecommerce.sales.offer.AcceptOfferRequest;
 import pl.klosowska.ecommerce.sales.offer.Offer;
 import pl.klosowska.ecommerce.sales.reservation.ReservationDetails;
 
@@ -22,10 +23,10 @@ public class SalesController {
         return sales.getCurrentOffer(customerId);
     }
     @PostMapping("/api/accept-offer")
-    ReservationDetails acceptOffer() {
+    ReservationDetails acceptOffer(AcceptOfferRequest acceptOfferRequest) {
         String customerId = getCurrentCustomerId();
-        ReservationDetails details = sales.acceptOffer(customerId);
-        return details;
+        ReservationDetails reservationDetails = sales.acceptOffer(customerId, acceptOfferRequest);
+        return reservationDetails;
     }
 
     @PostMapping("/api/add-to-cart/{productId}")
