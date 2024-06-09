@@ -26,7 +26,7 @@ public class OfferAcceptanceTest {
     @Test
     void itAllowToAcceptAnOffer() {
         SalesFacade sales = thereIsSales();
-        String customerId = thereIsCustomer("Emil");
+        String customerId = thereIsCustomer("Monika");
         String productId = ThereIsProduct("X", BigDecimal.valueOf(10));
 
         sales.addToCart(customerId,productId);
