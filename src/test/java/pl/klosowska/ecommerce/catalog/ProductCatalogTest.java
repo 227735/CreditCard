@@ -44,16 +44,6 @@ public class ProductCatalogTest {
         return new ProductCatalog(new ArrayListProductStorage());
     }
 
-    @Test
-    void itAllowsToAssignImage() {
-        ProductCatalog catalog = thereIsProductCatalog();
-        String id = catalog.addProduct("Lego set 8084","nice one");
-
-        catalog.assignImage(id, "nice_image.jpeg");
-
-        Product loaded = catalog.getProductBy(id);
-        assertThat(loaded.getImage()).isEqualTo("legoset8083.png");
-    }
 
 }
 

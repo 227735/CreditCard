@@ -21,7 +21,7 @@ public class ReservationDetails {
     }
 
     public BigDecimal getTotal() {
-        return BigDecimal.valueOf(10.10);
+        return BigDecimal.ZERO;
     }
 
 

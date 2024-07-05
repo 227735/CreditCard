@@ -9,7 +9,6 @@ public class Cart {
     HashMap<String, Integer> productsQty;
 
     public Cart(){
-
         this.productsQty = new HashMap<>();
     }
     public static Cart empty() {

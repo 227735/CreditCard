@@ -5,30 +5,30 @@ getProducts = () => {
 
 getCurrentOffer = () => {
     return fetch("/api/current-offer")
-         .then(response => response.json());
-    }
+        .then(response => response.json());
+}
 
-
-const createProductHtml = (productData) => {
+createProductHtmlEl = (productData) => {
     const template = `
         <div>
+            <img src="https://images.prismic.io/carwow/e2dbfc3f-127b-4de0-a839-e082dc488eb4_RHD+BMW+M8+Exterior+2.jpg" width= 200 height = 200 />
             <h4>${productData.name}</h4>
+            <span>${productData.description}</span>
             <span>${productData.price}</span>
-            <img src = "https://images.prismic.io/carwow/e2dbfc3f-127b-4de0-a839-e082dc488eb4_RHD+BMW+M8+Exterior+2.jpg"/>
-            <button data-id="${productData.id}">Add to cart</button>
+            <button data-id ="${productData.id}"> Add to cart</button>
         </div>
-    `
-    const productEl = document.createElement("li");
-    productEl.innerHTML = template.trim();
-
-    return productEl;
+    `;
+    const newEl = document.createElement("li");
+    newEl.innerHTML = template.trim();
+    return newEl;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const productsListEl = document.querySelector("#productsList");
+    console.log("it works");
+    const productsList = document.querySelector("#productsList");
     getProducts()
-        .then(productsAsJsonObj => productsAsJsonObj.map(createProductHtml))
-        .then(productsAsHtmlEl => {
-            productsAsHtmlEl.forEach(productEl => productsListEl.appendChild(productEl))
-        })
-});
+        .then(products => products.map(createProductHtmlEl))
+        .then(productsHtmls => {
+            productsHtmls.forEach(htmlEl => productsList.appendChild(htmlEl))
+        });
+})

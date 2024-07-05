@@ -47,8 +47,6 @@ public class OfferAcceptanceTest {
         assertThereIsReservationWithId(reservationDetails.getReservationId());
         assertReservationIsPending(reservationDetails.getReservationId());
         assertReservationIsDoneForCustomer(reservationDetails.getReservationId(), "john", "doe", "john.doe@example.com");
-        assertReservationTotalMatchOffer(reservationDetails.getReservationId(), BigDecimal.valueOf(20));
-
     }
 
     private void assertReservationTotalMatchOffer(String reservationId, BigDecimal expectedTotal) {

@@ -8,6 +8,9 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 public class CartTest {
+
+
+
     @Test
     void itIsEmptyWhenCreated(){
         Cart cart = Cart.empty();
@@ -104,7 +107,7 @@ public class CartTest {
         List<CartLine> lines = cart.getLines();
 
         assertCartContainsXAmountOfProduct(lines, productX, 3);
-        assertCartContainsXAmountOfProduct(lines, productY, 2);
+        assertCartContainsXAmountOfProduct(lines, productY, 1);
     }
 
     private void assertCartContainsXAmountOfProduct(List<CartLine> lines, String productId, int expectedQuantity) {

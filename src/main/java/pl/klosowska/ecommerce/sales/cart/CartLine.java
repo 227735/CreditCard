@@ -2,8 +2,8 @@ package pl.klosowska.ecommerce.sales.cart;
 
 public class CartLine {
 
-    private int qty;
-    private String productId;
+    int qty;
+    String productId;
 
     public CartLine(String productId, int qty) {
         this.productId = productId;
